@@ -5,11 +5,11 @@ const SliderContainer = ({ children }) => {
     return (
         <>
             <div className="button up" onClick={getPrev}>
-                <img className="button-image" src="/arrow.svg" alt="prev" />
+                <img className="button-image" src="./arrow.svg" alt="prev" />
             </div>
             {children}
             <div className="button down" onClick={getNext}>
-                <img className="button-image" src="/arrow.svg" alt="next" />
+                <img className="button-image" src="./arrow.svg" alt="next" />
             </div>
         </>
     );
