@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+.container {
+    width: 1000px;
+    height: 600px;
+}
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.slide {
+    margin: 20px;
+    width: 200px;
+    height: 250px;
+    border: white 1px solid;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0.5;
+    transform: scale(0.5);
+}
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+.slide-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
