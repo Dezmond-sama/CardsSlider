@@ -8,15 +8,14 @@ const Slider = () => {
         }
         return c;
     };
-    const fetchCard = useCallback((id) => {
+    const fetchCard = useCallback(() => {
         return setTimeout(() => {
-            console.log(id);
             const card = {
-                id,
+                id: Math.random(),
                 url: `https://dummyimage.com/300/${getColor()}/${getColor()}.png`,
             };
             setCards((prev) => [...prev, card]);
-        }, Math.random() * 10000);
+        }, Math.random() * 1000 + 100);
     }, []);
 
     const [cards, setCards] = useState([]);
@@ -24,8 +23,16 @@ const Slider = () => {
         setCards([]);
         const timers = [];
         for (let i = 0; i < 5; i++) {
-            timers.push(fetchCard(i));
+            timers.push(fetchCard());
         }
+        timers.push(
+            setTimeout(() => {
+                setInterval(() => {
+                    setCards((prev) => [...prev.slice(1)]);
+                    fetchCard();
+                }, 5000);
+            }, 5000)
+        );
         return () => timers.forEach((element) => clearTimeout(element));
     }, [fetchCard]);
     return (
