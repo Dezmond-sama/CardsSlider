@@ -9,6 +9,7 @@ const Slider = () => {
         return c;
     };
     const fetchCard = useCallback(() => {
+        // Emulation of loading with some delay
         return setTimeout(() => {
             const card = {
                 id: Math.random(),
@@ -26,6 +27,8 @@ const Slider = () => {
             timers.push(fetchCard());
         }
         timers.push(
+            // Just for example. It is better to fetch new card, and after it fetched remove the first one.
+            // And we can add some sort of history to store showed cards to have opportynity to return to previous cards
             setTimeout(() => {
                 setInterval(() => {
                     setCards((prev) => [...prev.slice(1)]);
